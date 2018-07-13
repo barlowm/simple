@@ -1,13 +1,6 @@
 "use strict";
 const $ = require("../config.js");
 
-
-const itschanged = function() {
-	const reload = $.connect.reload;
-	console.log(`${$.dest}/*.html Changed!`);
-	reload();
-};
-
 const connectFnc = function() {
 	const reload = $.connect.reload;
 	$.connect({
@@ -16,15 +9,9 @@ const connectFnc = function() {
 			baseDir: $.dest
 		}
 	});
-	$.gulp.watch(`${$.dest}/*.html`, itschanged);
+	// Removed watch as it's added as a separate task.
 };
 
-
-
-
-
-
-// watch files for changes and reload
 $.gulp.task("connect",
 	`Launches the application in a local server running as localhost in the ${$.dest} folder on port ${$.port}`,
 	[],
