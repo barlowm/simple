@@ -2,14 +2,12 @@
 const $ = require("../config.js");
 
 const connectFnc = function() {
-	const reload = $.connect.reload;
-	$.connect({
+	$.connect.init({
 		port: $.port,
 		server: {
 			baseDir: $.dest
 		}
 	});
-	// Removed watch as it's added as a separate task.
 };
 
 $.gulp.task("connect",
