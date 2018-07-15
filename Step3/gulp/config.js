@@ -57,7 +57,7 @@ module.exports = {
 	"connect": connect,
 	"prettier": prettier,
 	"del": del,
-	"concat": concat
+	"concat": concat,
 	"connect": connect,
 	"reload": reload
 };

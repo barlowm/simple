@@ -12,6 +12,6 @@ const watchFnc = function() {
 $.gulp.task(
 	"runIt",
 	"Run the application, watch for any changes in any of the assets and rebuild as necessary",
-	["connect"],
+	["build", "connect"],
 	watchFnc
 );
