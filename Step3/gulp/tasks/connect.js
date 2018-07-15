@@ -1,19 +1,29 @@
 "use strict";
+
 const $ = require("../config.js");
 
 const connectFnc = function() {
-	const reload = $.connect.reload;
 	$.connect({
 		port: $.port,
 		server: {
 			baseDir: $.dest
 		}
 	});
-	// Removed watch as it's added as a separate task.
 };
 
+const reloadFnc = function() {
+	console.log("----------- Reloading the application --------------");
+	$.connect.reload();
+}
+
 $.gulp.task("connect",
-	`Launches the application in a local server running as localhost in the ${$.dest} folder on port ${$.port}`,
+	`Launches the application in a local server running in the ${$.dest} folder on a given port`,
 	[],
 	connectFnc
+);
+
+$.gulp.task("reload",
+	"Reloads the browsers after any changes as a result of a rebuild",
+	[],
+	reloadFnc
 );
