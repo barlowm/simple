@@ -7,6 +7,7 @@ const dotenv = require("dotenv-safe").config();		// Use .ENV files for configura
 const gulp = require("gulp-help")(require("gulp"));	// Adds a default help task to gulp and provides the ability to add custom help messages to your gulp tasks
 const concat = require("gulp-concat");				// Combine multiple files into a single file via streams
 const prettier = require("prettier");				// Opinionated code formatter. It enforces a consistent style by parsing code and re-printing.
+const debug = require("gulp-debug");				// Debug Vinyl file streams to see what files are run through your Gulp pipeline
 const requireDir = require("require-dir");			// Plugin to require() directories.
 
 const src = process.env.SOURCE_ROOT;
@@ -57,4 +58,6 @@ module.exports = {
 	"prettier": prettier,
 	"del": del,
 	"concat": concat
+	"connect": connect,
+	"reload": reload
 };
