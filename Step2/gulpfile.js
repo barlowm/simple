@@ -1,12 +1,9 @@
-'use strict';
+"use strict";
 
-// const gulp = require('gulp-help')(require('gulp'));
-// const requireDir = require('require-dir');
-const $ = require('./gulp/config.js');
+const $ = require("./gulp/config.js");
 
 // Require all tasks in gulp/tasks, including subfolders
-const theDirs = $.requireDir('./tasks', { recurse: true });
-
+const theDirs = $.requireDir("./tasks", { recurse: true });
 
 /*
   gulpfile.js

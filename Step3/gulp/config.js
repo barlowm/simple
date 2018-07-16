@@ -54,7 +54,6 @@ module.exports = {
 	"gulp": gulp,
 	"requireDir": requireDir,
 	"dotenv": dotenv,
-	"connect": connect,
 	"prettier": prettier,
 	"del": del,
 	"concat": concat,
