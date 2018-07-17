@@ -3,7 +3,9 @@
 const $ = require("../config.js");
 
 const watchFnc = function() {
-	console.log("------------------ Watching for asset changes ------------------");
+	console.log(
+		"------------------ Watching for asset changes ------------------"
+	);
 
 	$.gulp.watch($.page_assets, ["html", "reload"]);
 	$.gulp.watch($.style_assets, ["css", "reload"]);

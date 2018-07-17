@@ -24,7 +24,5 @@
     "gulp-help": "^1.6.1",
     "require-dir": "^1.0.0"
   },
-  "dependencies": {
-    "prettier": "^1.13.7"
-  }
+  "dependencies": {}
 }

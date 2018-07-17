@@ -1,6 +1,6 @@
 [Simple Web Browser Project Build It](https://mwbarlow.com/simple/buildit) | [Documentation table of contents](TOC.md) 
 
-# Simple Web Browser Project - Build It
+# Simple Web Browser Project - Automate It
 
 The last [section]() introduced a simple template based on the [HTML5 Boilerplate](). Now we go beyond a simple boilerplate and start introducing some new methodologies. 
 

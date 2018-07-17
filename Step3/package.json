@@ -4,8 +4,7 @@
   "description": "Simple Web Application tutorial based off of the HTML5 Boilerplate, then adding JavaScript functionality and build processes",
   "main": "index.html",
   "scripts": {
-    "setup": "npm install -g npm& npm install gulp-cli -g& npm install& touch gulpfile.js",
-    "fix": "npm audit",
+    "setup": "npm install npm -g& npm install gulp-cli -g& npm install gulp -g& npm install",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {

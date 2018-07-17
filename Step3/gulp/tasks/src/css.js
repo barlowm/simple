@@ -9,7 +9,8 @@ const cssFnc = function() {
 	console.log(`Source: ${sPath}`);
 	console.log(`Dest: ${dPath}`);
 
-	$.gulp.src(sPath)
+	$.gulp
+		.src(sPath)
 		.pipe($.concat("common.css"))
 		.pipe($.gulp.dest(dPath));
 };

@@ -3,15 +3,10 @@
 const $ = require("../config.js");
 const dPath = $.dest;
 
-const cleanFnc = function (done) {
+const cleanFnc = function(done) {
 	console.log("------------------ Cleaning Build ------------------");
 
 	$.del([dPath], done);
 };
 
-$.gulp.task(
-	"clean",
-	`Cleans out the ${dPath} folder`,
-	[],
-	cleanFnc
-);
+$.gulp.task("clean", `Cleans out the ${dPath} folder`, [], cleanFnc);

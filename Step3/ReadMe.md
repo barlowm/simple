@@ -2,56 +2,48 @@
 
 # Simple Web Browser Project - Build It
 
-The last [section]() introduced a simple template based on the [HTML5 Boilerplate](). Now we go beyond a simple boilerplate and start introducing some new methodologies. 
+In the last section we went over the basics of automating tasks within a project. Now we're going to delve a bit deeper into actually "building" an application.
 
-Doing something more than a simple static page with some minor JavaScript should make use of a Build Process to do static checks of the code, unit tests, code concatenation and minification and using a local HTTP server process. There's many build tools out there but my preferred on is [gulp](). So that's what I'm introducing in this section.
+Coding an app is all well and good, but there are things that can be done to optimize the running of an application in a production environment.
 
-There's also a [Front End Checklist](https://github.com/thedaviddias/Front-End-Checklist) that I like following that should be done before finally pushing an app into production (I like going through the checklist as I work through the app rather than at the end). 
+For example, every request for a different file from the server takes up resources. If we are using 10 CSS files and 10 JavaScript files in addition to the single HTML file that's a total of 21 hits to the server.
 
-Ans since we're talking about doing checks during the development process, one of my biggest pet peeves is accessibility, so there's a [checklist](https://webaim.org/standards/wcag/checklist) for that as well, along with a [tool](https://webaim.org/resources/webdev/) for checking the site for accessibility issues from your browser.
+What if we were to take those 10 CSS files and combine them into a single CSS file and do the same thing with the 10 JavaScript files. Now we only have 3 hits to the server that needs to happen.
 
-So let's go through the basic setup for automating tasks.
+But in the process, we need to make sure that we don't destroy the original 21 files. So we need to do all the combining of files into a new file that exists somewhere else.
 
-- [Node.JS](doc/NodeJS.md) 
-- [Node Package Manager](doc/NPM.md) 
-- [Gulp](doc/Gulp.md)
+This is all done with various plugins for gulp ([gulp-concat](https://www.npmjs.com/package/gulp-concat)) and the fact that gulp can use streams. From time to time we also need to see how the gulp streams are being passed to modules such as concat, so we can use the [gulp-debug](https://www.npmjs.com/package/gulp-debug) plugin for that.
 
-Before delving into adding new functionality to the application one of the key components we're going to be using is [Node.JS](https://nodejs.org/en/) so the first thing to do is download and install the "Recommended For Most Users" version of Node.JS from the website. It's a simple Windows .MSI install file so it's download and launch.
+As with our previous section we need to create tasks for concatinating the CSS files as well as the JavaScript files and moving them over into a second folder and then using browser-sync from the last section to render the result to the browser. 
 
-For the most part, that will be the only software "installation" that will need to be done. The remainder of the software installations will be done using the "Node Package Manager" or NPM (which is installed as part of the Node.JS installation)
-
-The use of Gulp enables the creation of a process that can be used to consistently repeat any process necessary for the building and testing of an application. This is done through the use of individual "tasks".
-
-With Gulp in place the list of available tasks can be displayed by running the "gulp" command at the command line.
+Also, we're adding new code to our config.js file to make handling of various folders, plugins, and variables easier when we use this application template for another project.
 
 ```
->gulp
-[11:00:48] Using gulpfile gulpfile.js
-[11:00:48] Starting 'help'...
+config.js    Contains all the common project configuration code.
 
-Usage
-  gulp [TASK] [OPTIONS...]
+gulp/tasks:
+      _Test.js    display the config object <-- This is just for demonstration purposes
+      build.js    Build the entire application by running individual processes [html, css]
+      clean.js    Cleans out the ./build folder
+      connect.js  Launches the application in a local server running in the ./build folder on a given port
+      runit.js    Run the application, watch for any changes in any of the assets and rebuild as necessary [build, connect]
+      watch.js    Watch for any changes in any of the assets. Rebuild/reload browser as needed [connect]   
 
-Available tasks
-  _test    display the config object <-- This is just for demonstration purposes
-  build    Build the entire application by running individual processes [html, css]
-  clean    Cleans out the ./build folder
-  connect  Launches the application in a local server running in the ./build folder on a given port
-  css      Combine any CSS files into a single file and move combined file into the build folder
-  help     Display this help text.
-  html     Copy any HTML pages into the build folder
-  reload   Reloads the browsers after any changes as a result of a rebuild
-  runIt    Run the application, watch for any changes in any of the assets and rebuild as necessary [connect]
-
-[11:00:48] Finished 'help' after 5.22 ms
-[11:00:48] Starting 'default'...
-[11:00:48] Finished 'default' after 34 µs
-
->
+gulp/tasks/src:
+      css.js     Combine any CSS files into a single file and move combined file into the build folder
+      html.js    Copy any HTML pages into the build folder     
 ```
 
-Normally the individual tasks are put into a single gulpfile.js. But rather than manage one giant configuration file responsible  for creating multiple tasks, each task has been broken out into  its own file in gulp/tasks. Any files in that directory get  automatically required in the gulpfile.js
+Also, to ensure that there's consistency in the coding style I've included the [prettier](https://www.npmjs.com/package/prettier) package which is an "opinionated code formatter" which can be used to re-write your source code according to a consistent styling convention.
 
-To add a new task, simply add a new task file that directory.  Based on [vigetlabs/gulp-starter repo in github ](https://github.com/vigetlabs/gulp-starter).
+`npx prettier --write ./js/\*\*/*.js`
 
-There's also a "help" task which is the default gulp task that lists all the individual tasks, and a description of each.
+Will ensure all your JavaScript code will have a consistent coding style. (I typically run prettier before building any code modules for testing).
+
+When you're done building and testing and you want to "trash" your resulting build prior to creating a new one, just run the "clean" task `gulp clean`.
+
+Then to build and run your application, just call the `runIt` task (note that gulp tasks are Case Sensitive)
+
+```gulp runIt```
+
+Change anything in the source code and watch your task get rebuilt and re-run in the browser.

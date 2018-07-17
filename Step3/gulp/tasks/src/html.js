@@ -9,13 +9,7 @@ const htmlFnc = function() {
 	console.log(`Source: ${sPath}`);
 	console.log(`Dest: ${dPath}`);
 
-	$.gulp.src(sPath)
-		.pipe($.gulp.dest(dPath));
+	$.gulp.src(sPath).pipe($.gulp.dest(dPath));
 };
 
-$.gulp.task(
-	"html",
-	"Copy any HTML pages into the build folder",
-	[],
-	htmlFnc
-);
+$.gulp.task("html", "Copy any HTML pages into the build folder", [], htmlFnc);

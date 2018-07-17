@@ -3,7 +3,9 @@
 const $ = require("../config.js");
 
 const buildFnc = function() {
-	console.log("------------------ Application Build is complete ------------------");
+	console.log(
+		"------------------ Application Build is complete ------------------"
+	);
 };
 
 $.gulp.task(
