@@ -10,7 +10,7 @@ const jsFnc = function() {
 	console.log(`Source Files: ${sPath}`);
 	console.log(`Dest Folder: ${dPath}`);
 
-		// Note in this task, we're using Browserify to transform, concatinate, and pipe the output rather than $.gulp
+	// Note in this task, we're using Browserify to transform, concatinate, and pipe the output rather than $.gulp
 	return $.browserify(sPath)
 		.bundle()
 		.pipe($.source($.main_script))

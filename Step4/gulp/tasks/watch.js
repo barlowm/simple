@@ -10,6 +10,10 @@ $.gulp.task(
 		$.gulp.watch($.page_assets, ["html"]);
 		$.gulp.watch([$.root_assets, $.image_assets], ["misc"]);
 		$.gulp.watch($.style_assets, ["css"]);
-		$.gulp.watch($.script_assets, ["reload", "js"]).on("change", function() {console.log("Watching - ", $.script_assets);});
+		$.gulp
+			.watch($.script_assets, ["reload", "js"])
+			.on("change", function() {
+				console.log("Watching - ", $.script_assets);
+			});
 	}
 );
