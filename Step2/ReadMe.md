@@ -76,3 +76,21 @@ That's it. You should now see your application open in a new browser window. Go 
 
 Next, adding more components and a better build process.
 
+Once again, if you're just starting with this module in a clean environment, that has Node.js already installed, then all you need to get the code working is, create a `.env` file with the following data (the fields for the `.env` file come from the `.env.example` file):
+
+```
+NODE_ENV="develop"
+// NODE_ENV="production"
+SOURCE_ROOT="./"
+BASE_PATH="./"
+PORT=8081
+```
+
+Then, from the command line prompt do a 
+
+```
+> npm run setup
+> gulp runIt
+```
+
+and the app here will be up and running on your browser

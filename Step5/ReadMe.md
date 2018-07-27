@@ -1,4 +1,4 @@
-[Simple Web Browser Project Build It](https://mwbarlow.com/simple/buildit) | [Documentation table of contents](TOC.md) 
+[Simple Web Browser Project Build It](https://mwbarlow.com/simple/buildit) | [Documentation table of contents](TOC.md)
 
 # Simple Web Browser Project - More advanced functionality - "Require"
 
@@ -60,19 +60,7 @@ Also check out how the main.js file has been modified to "require" the main appl
 
 Now I could have just as easily combined everything into the main.js, but splitting into 2 files is a better example of how you can separate your code modules and use require to not only include Node_module libraries but local JavaScript files as well.
 
-
-Once again, if you're just starting with this module in a clean environment, that has Node.js already installed, then all you need to get the code working is, create a `.env` file with the following data (the fields for the `.env` file come from the `.env.example` file):
-
-```
-NODE_ENV="develop"
-// NODE_ENV="production"
-SOURCE_ROOT="./src"
-BASE_PATH="./build"
-APP_FILE="main.js"
-PORT=8081
-```
-
-Then, from the command line prompt do a 
+Once again, if you're just starting with this module in a clean environment, that has Node.js already installed, then all you need to get the code working is, from the command line prompt do a
 
 ```
 > npm run setup

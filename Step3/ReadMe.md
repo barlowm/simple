@@ -44,6 +44,29 @@ When you're done building and testing and you want to "trash" your resulting bui
 
 Then to build and run your application, just call the `runIt` task (note that gulp tasks are Case Sensitive)
 
-```gulp runIt```
+```
+gulp runIt
+```
 
 Change anything in the source code and watch your task get rebuilt and re-run in the browser.
+
+Once again, if you're just starting with this module in a clean environment, that has Node.js already installed, then all you need to get the code working is, create a `.env` file with the following data (the fields for the `.env` file come from the `.env.example` file):
+
+```
+NODE_ENV="develop"
+// NODE_ENV="production"
+SOURCE_ROOT="./"
+BASE_PATH="./build"
+PORT=8081
+```
+
+Then, from the command line prompt do a 
+
+```
+> npm run setup
+> gulp runIt
+```
+
+and the app here will be up and running on your browser
+
+Next time we'll go over how to track changes to source code with live rendering of the resulting changes
