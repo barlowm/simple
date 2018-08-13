@@ -10,5 +10,5 @@ Some developers on a team I'm working with are advanced MUMPS developers, but as
 - Step 6 - Back to Something "Simpler" - A JavaScript Only example
 - Step 7 - Just The Tests - Simple Unit Testing using Mocha and Chai with and without Promises
 
-This is an ongoing "late night" project on my part and there's not a lot of checking on my part for cleanup of docs and such, so please don't bash the developer too much :)  <No I don't go into BASH scripts here either >
+This is an ongoing "late night" project on my part and there's not a lot of checking on my part for cleanup of docs and such, so please don't bash the developer too much :)  <--- No I don't go into BASH scripts here either --->
 
