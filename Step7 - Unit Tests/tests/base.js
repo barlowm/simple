@@ -11,7 +11,7 @@ const getTheData = require($.src_path + "get_data");
 
 
 /*
- * Note, these functions make use of the JavaaScript "Fat Arrow" feature (e.g. =>).
+ * Note, these functions make use of the JavaScript "Fat Arrow" feature (e.g. =>).
  * The function below could also be written as:
  *      const resolvingPromise = new Promise(function(resolve) {
  *          resolve("promise resolved");
@@ -20,15 +20,6 @@ const getTheData = require($.src_path + "get_data");
 const resolvingPromise = new Promise((resolve) =>
 	resolve("promise resolved")
 );
-
-// const rejectingPromise = new Promise((resolve, reject) =>
-//   reject(new Error("promise rejected"))
-// );
-
-// const rejectingPromise2 = new Promise(function(resolve, reject) {
-//   reject(new Error("promise rejected"))
-// });
-
 
 before("Setting up the userList", function(){
 	console.log("Any setup needed for test can go here");

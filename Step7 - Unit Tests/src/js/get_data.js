@@ -1,6 +1,6 @@
 require("dotenv-safe").config();
-const fs = require("fs-extra");
-
+const fs = require("fs-extra");	// Module which adds file system methods that aren't included in the native node.js fs module
+const tv4 = require("tv4");	// Tiny validator for JSON Schema V4
 
 const get_JSON = function() {
 	const get_data = function(packagePath) {
@@ -32,9 +32,28 @@ const get_JSON = function() {
 				return null;
 			});
 	};
+
+	const verify_json = function(schemaPath, packagePath) {
+		if(!schemaPath) {
+			schemaPath = process.env.SCHEMA;
+		}
+		if(!packagePath) {
+			packagePath = process.env.PACKAGE;
+		}
+		return Promise.all([get_schema(), get_data()])
+			.then( function(values) {
+				const valid = tv4.validate(values[1], values[0]);
+				if (valid) {
+					return values[1];
+				}
+				return null;
+			});
+	};
+
 	return {
 		get_data,
-		get_schema
+		get_schema,
+		verify_json
 	}
 };
 

@@ -5,6 +5,7 @@ const dPath = $.dest;
 
 const cleanFnc = function(done) {
 	console.log("------------------ Cleaning Build ------------------");
+	console.log("Path - ", dPath);
 
 	$.del([dPath], done);
 };

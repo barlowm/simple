@@ -2,7 +2,10 @@
 
 /* Modules used within the application */
 const browserify = require("browserify"); // lets you require('modules') in the browser by bundling up all of your JavaScript source
-const dotenv = require("dotenv-safe").config(); // Use .ENV files for configuration, use .env.example to check for required variables
+// const dotenv = require("dotenv-safe").config(); // Use .ENV files for configuration, use .env.example to check for required variables
+// dotenv-safe breaks because of missing fs.readfilesync, need to investigate
+
+const dotenv = require("dotenv").config(); // Use .ENV files for configuration, use .env.example to check for required variables
 const fs = require("fs-extra");	// Module which adds file system methods that aren't included in the native node.js fs module
 
 /* Modules used for testing the application */
@@ -28,6 +31,9 @@ const notify = require("gulp-notify");	// A gulp plugin for sending notification
 const prettier = require("gulp-prettier-plugin");	// Plugin for Prettier, Opinionated code formatter. It enforces a consistent style by parsing code and re-printing.
 const requireDir = require("require-dir"); // Plugin to require() directories.
 const source = require("vinyl-source-stream"); // Plugin to convert the readable stream from browserify into a vinyl stream for gulp
+const tv4 = require("tv4");	// Tiny validator for JSON Schema V4
+
+
 
 /* Variables used within the build/testing process */
 const src = process.env.SOURCE_ROOT;
@@ -39,7 +45,7 @@ const script_path = "/js/";
 const page_path = "/";
 const test_path = "./tests";
 
-const script_dest = dest + script_path;
+const script_dest = dest + page_path;
 const pretty_dest = p_dest;
 
 const main_script_assets = src + script_path + main_script;
@@ -85,5 +91,6 @@ module.exports = {
 	mocha: mocha,
 	mochawesome: mochawesome,
 	requireDir: requireDir,
-	source: source
+	source: source,
+	tv4: tv4
 };

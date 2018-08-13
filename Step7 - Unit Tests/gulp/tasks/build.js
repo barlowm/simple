@@ -11,6 +11,6 @@ const buildFnc = function() {
 $.gulp.task(
 	"build",
 	"Build the entire application by running individual processes",
-	["js"],
+	["JS"],
 	buildFnc
 );

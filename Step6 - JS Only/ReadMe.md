@@ -45,7 +45,17 @@ Cleans out all build files in preparation to a total rebuild of the application
 
 The default task will list all the tasks with help info on each task.
 
+To build the simple Node.JS project
 
+```
+> gulp JS
+```
+
+Then to run it
+
+```
+> node build\js\main
+```
 
 
 
